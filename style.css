@@ -1,0 +1,531 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffccb3;
+    color: #fff;
+}
+
+/* Enlaces en la barra de navegación */
+.links li a,
+.navbar .logo a,
+.navbar-nav li a,
+.DownMenu li a {
+    text-decoration: none; /* Asegúrate de que esta propiedad esté aquí */
+}
+
+/* Enlaces en la barra de navegación al hacer hover */
+.links li a:hover,
+.navbar .logo a:hover,
+.navbar-nav li a:hover,
+.DownMenu li a:hover {
+    text-decoration: none; /* Asegúrate de que esta propiedad esté aquí */
+}
+
+/* Estilos para el navbar */
+/* Estilos generales para el ícono del menú */
+.menu-icon,
+.action_btn,
+.toggle_btn {
+    display: none;
+    cursor: pointer;
+    color: #fff; /* Ajusta a tu paleta de colores */
+}
+
+.DownMenu {
+    display: none;
+    position: absolute;
+    color: #f29393;
+    right: 2rem;
+    top: 60px;
+    width: 300px;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: height 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.DownMenu li {
+    padding: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.DownMenu .action_btn {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f29393;
+    color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.navbar .logo a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.links li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1em;
+    transition: color 0.3s ease;
+    text-transform: uppercase;
+}
+
+.links li a:hover {
+    color: #ffccb3;
+}
+
+.navbar.active {
+    background-color: #ffccb3;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+
+/* Estilos para la sección "Info" con partículas */
+.info-section {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px;
+    background-color: #ffccb3;
+    height: 100vh;
+    color: #fff;
+    overflow: hidden;
+}
+
+#particles-js, #particles-js-about, #particles-js-catalog {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.info-content {
+    position: relative;
+    z-index: 2;
+    max-width: 45%;
+}
+
+.info-content h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+.info-content h1 img {
+    max-width: 100%; /* Ajusta la imagen del logo dentro del h1 */
+    height: auto;
+}
+
+.single-image {
+    width: 45%;
+    height: 60vh;
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.single-image img {
+    width: auto;
+    height: 100%;
+    object-fit: contain;
+}
+
+.single-image::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    z-index: -1;
+}
+
+
+
+/* Estilos para la sección "Sobre Nosotros" con partículas */
+.about-us {
+    position: relative;
+    padding: 100px 50px;
+    background-color: #f29393;
+    color: #FFF;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.about-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    height: 100%;
+}
+
+.about-text {
+    width: 50%;
+    padding-right: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.about-text h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.about-text p {
+    font-size: 1.2em;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.about-image {
+    width: 50%;
+    padding-left: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.about-image img {
+    width: auto;
+    height: 60vh;
+    object-fit: contain;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Estilos para la sección "Catálogo" con partículas */
+.catalog {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 50px;
+    background-color: #ffccb3;
+    color: #fff;
+    height: auto;
+    overflow: hidden;
+}
+
+.catalog h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.catalog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+    transition: background-color 0.3s ease;
+}
+
+.product-card {
+    position: relative;
+    max-width: 100%;
+    height: 300px; /* Ajusta la altura según tus necesidades */
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    z-index: 1;
+}
+
+.product-card:hover {
+    transform: scale(1.2);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+}
+
+.product-card:hover .product-description {
+    opacity: 1;
+    visibility: visible;
+}
+
+.catalog-grid:hover .product-card:not(:hover) {
+    filter: blur(2px);
+    opacity: 0.5;
+}
+
+.product-img {
+    max-width: 100%;
+    width: 100%;
+    height: 100%; /* Ajusta la altura de la imagen */
+    object-fit: cover;
+}
+
+.product-overlay {
+    color: #f29393;
+    text-transform: uppercase;
+    font-weight: bold;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Ajusta la opacidad del fondo */
+    padding: 15px;
+    text-align: center;
+}
+
+.product-description {
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    font-size: 0.9em;
+    margin-top: 10px;
+}
+
+.view-details {
+    display: inline-block; /* Cambia el display a inline-block */
+    margin: 0 auto; /* Agrega el centrado automático */
+    display: none;
+    position: relative;
+    margin-top: 10px; 
+    padding: 10px 20px;
+    background-color: #f29393;
+    color: #fff;
+    text-decoration: none !important;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.product-card:hover .view-details {
+    display: block;
+}
+/* Estilos para la sección "Contáctanos" con partículas */
+#contact {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 50px;
+    background-color: #f29393;
+    color: #fff;
+    height: auto;
+    overflow: hidden;
+}
+
+#contact h2 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.contact-container {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 600px;
+}
+
+.contact-logo {
+    width: 250px; /* Ajusta el tamaño del logo según tus necesidades */
+    height: auto;
+}
+
+.contact-icons {
+    display: flex;
+    gap: 50px;
+}
+
+.contact-icons a {
+    display: inline-block;
+}
+
+.contact-icons img {
+    width: 60px; /* Ajusta el tamaño de los iconos según tus necesidades */
+    height: auto;
+    transition: transform 0.3s ease-in-out; /* Asegúrate de que la transición esté definida */
+}
+
+.contact-icons img:hover {
+    transform: scale(1.2);
+}
+
+#particles-js-contact {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+/* Media query para dispositivos móviles */
+@media screen and (max-width: 768px) {
+    /* Navbar */
+    .links,
+    .action_btn {
+    display: none;
+    }
+
+    .navbar-nav {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        z-index: 99; /* aseguramos que este por encima de todo */
+        width: 100%;
+        background-color: #f29393;
+        padding: 0;
+        margin: 0;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+    }
+
+    .navbar-nav  li {
+        display: inline-block;
+        float: none;
+        font-size: 2rem;
+    }
+
+    .navbar-nav > li > a {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    .toggle_btn {
+        display: block;
+        color: #fff; /* Ajusta a tu paleta de colores */
+        font-size: 1.5em;
+    }
+
+    .navbar {
+        position: relative;
+    }
+    
+    .DownMenu {
+        z-index: 1000;
+        margin-bottom: 20px;
+        display: none;
+        flex-direction: column; /* Muestra los elementos en una columna */
+        position: absolute;
+        color: #f29393;
+        right: 2rem;
+        top: 60px;
+        width: 300px;
+        background-color: rgba(255, 255, 255, 0.3);
+        backdrop-filter: blur(15px);
+        border-radius: 10px;
+        overflow: hidden;
+        transition: height 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    
+    .DownMenu.open {
+        display: flex;
+        font-size: 2rem;
+    }
+    
+    .DownMenu li a {
+        color: #f29393;
+        text-decoration: none;
+        padding: 10px;
+        display: block;
+        text-align: center;
+    }
+
+    
+
+    /* Info: Solo el logo y más grande*/ 
+    .info-content {
+        max-width: 100%; /* Ajusta el ancho máximo al 100% */
+    }
+
+    .single-image {
+        width: 100%; /* Ajusta el ancho de la imagen al 100% */
+        display: none;
+    }
+
+    .single-image img {
+        display: none; /* Oculta la imagen de la derecha */
+    }
+
+    /* Sobre Nosotros: Imagen abajo de la información, con ajustes de tamaño */
+    .about-us{
+        height: 180vh;
+    }
+    .about-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        height: auto;
+    }
+
+    .about-text {
+        margin-bottom: 20px;
+        font-size: 14px; /* Ajusta el tamaño del texto */
+    }
+
+    .about-image img {
+        width: 100%;
+        max-width: 200px; /* Ajusta el tamaño de la imagen */
+        height: auto;
+        margin-top: 20px;
+    }
+
+    /* Catálogo: Una tarjeta por fila */
+    .catalog-grid {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .product-card {
+        width: 90%;
+        margin-bottom: 20px;
+    }
+
+    /* Contactanos: Iconos abajo del logo */
+    .contact-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contact-icons {
+        margin-top: 20px;
+    }
+}
